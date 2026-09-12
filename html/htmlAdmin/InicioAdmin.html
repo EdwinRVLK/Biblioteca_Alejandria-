@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio Admin - Biblioteca de Alejandría</title>
+  <link rel="stylesheet" href="/css/cssAdmin/InicioAdmin.css">
+</head>
+<body>
+  <!-- Botón EXIT -->
+  <button class="exit-btn">Cerrar Sesión</button>
+
+  <!-- Encabezado -->
+  <header class="header">
+    <h1>Inicio</h1>
+    <div class="icons">
+      <div class="icon-wrapper">
+        <img src="https://cdn-icons-png.flaticon.com/512/1159/1159633.png" alt="editar" class="icon">
+        <span class="icon-label">Editar libros</span>
+      </div>
+      <div class="icon-wrapper">
+        <img src="https://cdn-icons-png.flaticon.com/512/1077/1077063.png" alt="usuario" class="icon">
+        <span class="icon-label">Perfil</span>
+      </div>
+      <div class="icon-wrapper">
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828859.png" alt="menu" class="icon menu-btn">
+        <span class="icon-label">Menú</span>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- Popup Menú hamburguesa -->
+  <div class="popup-menu" id="popupMenu">
+    <div class="popup-content">
+      <span class="close-popup">&times;</span>
+      <h3>Menú rápido</h3>
+      <ul>
+        <li id="btn-agregar">
+          <span class="menu-icon">➕</span>
+          <span class="menu-text">Agregar Libros</span>
+        </li>
+        <li id="btn-usuarios">
+          <span class="menu-icon">✏️</span>
+          <span class="menu-text">Editar Usuarios</span>
+        </li>
+        <li id="btn-prestamos">
+          <span class="menu-icon">📄</span>
+          <span class="menu-text">Préstamos</span>
+        </li>
+        <li id="btn-informes">
+          <span class="menu-icon">📊</span>
+          <span class="menu-text">Informes</span>
+        </li>
+      </ul>
+      <p id="menuDescripcion" class="menu-descripcion">
+        Pasa el cursor sobre una opción para ver qué hace.
+      </p>
+    </div>
+  </div>
+
+  <!-- Sección Categorías -->
+  <section class="categorias">
+    <h2>
+      Categorías
+      <button id="btn-gestionar-categorias" class="btn-engranaje">⚙️</button>
+    </h2>
+    <div class="scroll-container" id="contenedor-categorias">
+      <!-- Tarjetas de categorías dinámicas -->
+    </div>
+  </section>
+
+  <!-- Sección Libros -->
+  <section class="mas-leidos">
+    <h2>Libros</h2>
+    <div class="actions">
+      <input
+        type="text"
+        id="inputBuscar"
+        placeholder="Buscar..."
+      >
+      <button class="btn buscar">🔍 Buscar</button>
+      <select id="selectFiltro">
+        <option value="">-- Todos los libros --</option>
+      </select>
+    </div>
+
+    <div class="libros-container" id="contenedor-libros">
+      <!-- Tarjetas de libros dinámicas -->
+    </div>
+  </section>
+
+  <!-- Popup Detalle del Libro -->
+  <div class="popup-detalle" id="popupDetalle">
+    <div class="contenido">
+      <span class="close-detalle">&times;</span>
+      <h3 id="detalleTitulo"></h3>
+      <p><strong>Editorial:</strong> <span id="detalleEditorial"></span></p>
+      <p><strong>Autor:</strong> <span id="detalleAutor"></span></p>
+      <p><strong>Categoría:</strong> <span id="detalleCategoria"></span></p>
+      <p><strong>Año de edición:</strong> <span id="detalleAnio"></span></p>
+      <p><strong>Cantidad de ejemplares:</strong> <span id="detalleEjemplares"></span></p>
+      <p><strong>Descripción:</strong></p>
+      <p id="detalleDescripcion"></p>
+    </div>
+  </div>
+
+  <!-- Modal Categorías -->
+  <div class="popup-menu" id="popupCategorias">
+    <div class="popup-content modal-categorias">
+      <span class="close-popup" id="cerrarCategorias">&times;</span>
+      <h3>Gestionar Categorías</h3>
+
+      <!-- Formulario agregar -->
+      <form id="formCategoria" enctype="multipart/form-data" class="form-categoria">
+        <div class="form-group">
+          <label for="nombreCategoria">Nombre de categoría:</label>
+          <input type="text" id="nombreCategoria" name="nombre" required>
+        </div>
+
+        <div class="form-group">
+          <label for="portadaCategoria">Portada:</label>
+          <input type="file" id="portadaCategoria" name="portada" accept="image/*">
+        </div>
+
+        <button type="submit" class="btn">➕ Agregar</button>
+      </form>
+
+      <hr>
+      <h4>Categorías existentes:</h4>
+      <div id="listaCategorias"></div>
+    </div>
+  </div>
+
+  <!-- Modal Editar Categoría -->
+  <div class="popup-menu" id="popupEditarCategoria">
+    <div class="popup-content">
+      <span class="close-popup" id="cerrarEditarCategoria">&times;</span>
+      <h3>Editar categoría</h3>
+
+      <form id="formEditarCategoria" enctype="multipart/form-data" class="form-categoria">
+        <input type="hidden" id="editIdCategoria" name="id">
+
+        <div class="form-group">
+          <label for="editNombreCategoria">Nombre de categoría:</label>
+          <input type="text" id="editNombreCategoria" name="nombre" required>
+        </div>
+
+        <div class="form-group">
+          <label for="editPortadaCategoria">Portada:</label>
+          <input type="file" id="editPortadaCategoria" name="portada" accept="image/*">
+          <img id="previewEditPortada" src="" alt="Vista previa" class="preview-portada">
+        </div>
+
+        <button type="submit" class="btn">💾 Guardar cambios</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="/jsAdmin/InicioAdmin.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Biblioteca de Alejandría - Mi Perfil</title>
+  <link rel="stylesheet" href="/css/info.css">
+</head>
+
+<body>
+
+  <!-- 🔝 TOP BAR -->
+  <div class="top-bar">
+    <button id="backBtn">Volver al inicio</button>
+    <h1>Biblioteca de Alejandría</h1>
+  </div>
+
+  <!-- TÍTULO PRINCIPAL -->
+  <h2 class="main-title">Mi Perfil</h2>
+
+  <!-- PERFIL -->
+  <section class="perfil-container">
+
+    <div class="foto-box">
+      <img id="userFoto" src="/images/default-profile.png" alt="Foto de usuario">
+      <button id="btnCambiarFoto">Cambiar foto</button>
+      <input id="inputFoto" type="file" accept="image/*" hidden>
+    </div>
+
+    <div class="info-box">
+      <p><strong>Nombre:</strong> <span id="userNombre"></span></p>
+      <p><strong>Correo:</strong> <span id="userCorreo"></span></p>
+      <p><strong>Rol:</strong> <span id="userRol"></span></p>
+      <p><strong>Deuda total: $</strong><span id="userDeuda">0.00</span></p>
+    </div>
+
+  </section>
+
+  <!-- DESCRIPCIÓN -->
+  <section class="descripcion">
+    <h2>Descripción personal</h2>
+    <textarea id="userDescripcion" rows="4"></textarea>
+    <button id="btnGuardarDescripcion">Guardar</button>
+  </section>
+
+  <!-- PRÉSTAMOS -->
+  <section class="prestamos">
+    <h2>Mis Préstamos</h2>
+    <div id="prestamosContainer"></div>
+  </section>
+
+  <script src="/javaScript/info.js"></script>
+</body>
+</html>

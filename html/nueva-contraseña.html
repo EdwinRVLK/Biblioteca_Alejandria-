@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nueva Contraseña - Biblioteca de Alejandría</title>
+  <!-- Ruta relativa al CSS -->
+  <link rel="stylesheet" href="/css/nueva-contraseña.css" />
+</head>
+<body>
+  <header>
+    <h1>Crear Nueva Contraseña</h1>
+    <h2>Biblioteca de Alejandría</h2>
+  </header>
+  <main>
+    <section class="recuperacion">
+      <h3>Nueva Contraseña</h3>
+      
+      <div id="message" class="message"></div>
+      
+      <form id="formNuevaContrasena">
+        <label for="nuevaContrasena">Nueva Contraseña:</label>
+        <input
+          type="password"
+          id="nuevaContrasena"
+          placeholder="Debe tener 8 caracteres"
+          required
+          minlength="8"
+          maxlength="8"
+        />
+        
+        <div class="password-strength">
+          <div id="strengthMeter" class="strength-meter"></div>
+        </div>
+        
+        <div class="password-requirements">
+          <div id="lengthReq" class="requirement">
+            <span class="icon"></span>
+            Exactamente 8 caracteres
+          </div>
+          <div id="upperReq" class="requirement">
+            <span class="icon"></span>
+            Al menos una letra mayúscula
+          </div>
+          <div id="lowerReq" class="requirement">
+            <span class="icon"></span>
+            Al menos una letra minúscula
+          </div>
+          <div id="numberReq" class="requirement">
+            <span class="icon"></span>
+            Al menos un número
+          </div>
+          <div id="specialReq" class="requirement">
+            <span class="icon"></span>
+            Al menos un carácter especial
+          </div>
+        </div>
+        
+        <label for="confirmarContrasena">Confirmar Contraseña:</label>
+        <input
+          type="password"
+          id="confirmarContrasena"
+          placeholder="Repite tu contraseña (8 caracteres)"
+          required
+          minlength="8"
+          maxlength="8"
+        />
+        
+        <button type="submit" id="cambiarContrasenaBtn">
+          Actualizar Contraseña
+        </button>
+      </form>
+    </section>
+  </main>
+  <!-- Ruta relativa al JS -->
+  <script src="/javaScript/nueva-contraseña.js"></script>
+</body>
+</html>

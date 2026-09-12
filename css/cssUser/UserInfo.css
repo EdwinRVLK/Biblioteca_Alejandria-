@@ -1,0 +1,199 @@
+/* 🌈 Archivo: css/cssUser/UserInfo.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(270deg, #ff9966, #ff5e62, #4facfe, #00f2fe);
+  background-size: 800% 800%;
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ░░░░ TOP BAR ░░░░ */
+.top-bar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centra el título */
+  position: relative;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+#backBtn {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #812202;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.top-bar h1 {
+  font-size: 2rem;
+  color: #030913;
+}
+
+/* TÍTULO PRINCIPAL */
+.main-title {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+  color: rgb(29, 1, 1);
+  font-weight: 600;
+}
+
+/* PERFIL */
+.perfil-container {
+  width: 90%;
+  max-width: 900px;
+  margin: 20px auto;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.foto-box {
+  text-align: center;
+}
+
+.foto-box img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid white;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+#btnCambiarFoto {
+  margin-top: 10px;
+  background: rgb(103, 2, 2);
+  border: 2px solid #770505;
+  color: #e0e1e2;
+  padding: 6px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.info-box {
+  flex: 2;
+  font-size: 1rem;
+  color: #2c3e50;
+}
+
+.info-box p {
+  margin: 6px 0;
+}
+
+/* DESCRIPCIÓN — CORREGIDA Y SIMÉTRICA */
+.descripcion {
+  background: rgba(255,255,255,0.9);
+  width: 90%;
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 25px;               /* Aumentamos padding para equilibrio visual */
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;                   /* Espaciado uniforme */
+}
+
+.descripcion h2 {
+  margin: 0;
+  color: #580802;
+  font-size: 1.3rem;
+}
+
+#userDescripcion {
+  width: 100%;
+  min-height: 120px;           /* Más proporcional con el diseño */
+  resize: none;
+  padding: 15px;               /* Igual padding que las tarjetas */
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  background: #f8f9fb;
+  font-size: 0.95rem;
+  box-sizing: border-box;      /* Evita que se desborde */
+}
+
+#btnGuardarDescripcion {
+  align-self: flex-end;        /* 🔥 Botón alineado a la derecha (simétrico) */
+  margin-top: 10px;
+  background: #610202;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+
+/* PRÉSTAMOS */
+.prestamos {
+  background: rgba(255,255,255,0.9);
+  width: 90%;
+  max-width: 900px;
+  margin: 25px auto;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.prestamos h2 {
+  text-align: center;
+  color: #490101;
+  margin-bottom: 20px;
+}
+
+.prestamo-card {
+  padding: 20px;
+  border-radius: 15px;
+  background: #fff;
+  margin-bottom: 15px;
+}
+
+.prestamo-card.activo {
+  border-left: 6px solid #27ae60;
+  background: #e8f9ef;
+}
+
+.prestamo-card.vencido {
+  border-left: 6px solid #e74c3c;
+  background: #fdeaea;
+}
+
+.estado.activo {
+  color: #27ae60;
+}
+
+.estado.vencido {
+  color: #e74c3c;
+}
+
+.no-prestamos {
+  text-align: center;
+  padding: 25px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 15px;
+  font-size: 1.1rem;
+}

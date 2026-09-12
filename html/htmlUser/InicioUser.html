@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio Usuario - Biblioteca de Alejandría</title>
+  <link rel="stylesheet" href="/css/cssUser/InicioUser.css">
+</head>
+<body>
+  <!-- Botón EXIT -->
+  <button id="exitBtn" class="exit-btn">Cerrar Sesión</button>
+
+  <!-- Encabezado -->
+  <header class="header">
+    <h1>Inicio</h1>
+    <div class="icons">
+      <!-- 👇 Nombre del usuario al lado del icono -->
+      <span id="userNameHeader" class="user-name" title="Ver perfil"></span>
+      <img src="https://cdn-icons-png.flaticon.com/512/1077/1077063.png" alt="usuario" class="icon" title="Ver perfil">
+    </div>
+  </header>
+
+  <!-- Sección Categorías -->
+  <section class="categorias">
+     <h2>Categorías</h2>
+    <div class="scroll-container" id="contenedor-categorias">
+      <!-- Dinámico -->
+    </div>
+  </section>
+
+  <!-- Sección Libros -->
+  <section class="mas-leidos">
+    <h2>Libros disponibles</h2>
+    <div class="actions" style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+      <input type="text" id="inputBuscar" placeholder="Buscar libro por nombre..." style="padding:6px; border-radius:6px; border:none; width:220px;">
+      <button class="btn buscar">🔍 Buscar</button>
+      <select id="selectFiltro" style="padding:6px; border-radius:6px; border:none;">
+        <option value="">-- Todas las categorías --</option>
+      </select>
+    </div>
+    <div class="grid-libros" id="contenedor-libros"></div>
+  </section>
+
+  <!-- Popup Detalle del Libro -->
+  <div class="popup-detalle" id="popupDetalle">
+    <div class="contenido">
+      <span class="close-detalle">&times;</span>
+      <h3 id="detalleTitulo"></h3>
+      <p><strong>Editorial:</strong> <span id="detalleEditorial"></span></p>
+      <p><strong>Autor:</strong> <span id="detalleAutor"></span></p>
+      <p><strong>Categoría:</strong> <span id="detalleCategoria"></span></p>
+      <p><strong>Año de edición:</strong> <span id="detalleAnio"></span></p>
+      <p><strong>Cantidad de ejemplares:</strong> <span id="detalleEjemplares"></span></p>
+      <p><strong>Descripción:</strong></p>
+      <p id="detalleDescripcion"></p>
+    </div>
+  </div>
+
+  <script src="/jsUser/InicioUser.js"></script>
+</body>
+</html>

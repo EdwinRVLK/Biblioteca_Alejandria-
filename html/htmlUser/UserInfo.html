@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil</title>
+
+    <link rel="stylesheet" href="/css/cssUser/UserInfo.css">
+</head>
+<body>
+
+    <!-- BARRA SUPERIOR -->
+    <div class="top-bar">
+        <button id="backBtn">Volver al inicio</button>
+        <h1>Biblioteca de Alejandria</h1>
+    </div>
+
+    <h1 class="main-title">Mi Perfil</h1>
+
+    <!-- CONTENEDOR PERFIL -->
+    <div class="perfil-container">
+
+        <div class="foto-box">
+            <img id="userFoto" src="/images/default-profile.png" alt="Foto de perfil">
+            <button id="btnCambiarFoto">Cambiar foto</button>
+            <input type="file" id="inputFoto" accept="image/*" style="display:none">
+        </div>
+
+        <div class="info-box">
+            <p><strong>Nombre:</strong> <span id="userNombre"></span></p>
+            <p><strong>Correo:</strong> <span id="userCorreo"></span></p>
+            <p><strong>Rol:</strong> <span id="userRol"></span></p>
+            <p><strong>Deuda total:</strong> $<span id="userDeuda"></span></p>
+        </div>
+    </div>
+
+    <!-- DESCRIPCIÓN PERSONAL -->
+    <div class="descripcion">
+        <h2>Descripción personal</h2>
+        <textarea id="userDescripcion"></textarea>
+        <button id="btnGuardarDescripcion">Guardar descripción</button>
+    </div>
+
+    <!-- PRÉSTAMOS -->
+    <div class="prestamos">
+        <h2>Mis préstamos</h2>
+        <div id="prestamosContainer"></div>
+    </div>
+
+    <script src="/jsUser/UserInfo.js"></script>
+</body>
+</html>

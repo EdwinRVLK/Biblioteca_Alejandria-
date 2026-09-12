@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editar Usuarios</title>
+  <link rel="stylesheet" href="/css/cssAdmin/editar-usuarios.css">
+</head>
+<body>
+  <!-- Botón de salida -->
+  <button class="exit-btn" onclick="window.location.href='/html/htmlAdmin/InicioAdmin.html'">Volver</button>
+
+  <!-- Encabezado -->
+  <header class="header">
+    Editar Usuarios
+  </header>
+
+  <!-- Controles superiores -->
+  <div class="top-controls">
+    <button class="btn-control agregar" id="btn-agregar">
+      <span class="icon">➕</span> Agregar
+    </button>
+
+    <div class="buscar-container">
+      <label for="buscar">Buscar</label>
+      <input type="text" id="buscar" placeholder="Escribe un usuario...">
+      <button class="buscar-btn" id="btn-buscar">🔍</button>
+    </div>
+  </div>
+
+  <!-- Tabla de usuarios -->
+  <div class="tabla-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Usuario</th>
+          <th>Correo Institucional</th>
+          <th>Rol</th>
+          <th>Préstamos</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="tbody-usuarios">
+        <!-- Los usuarios se cargarán aquí dinámicamente -->
+      </tbody>
+    </table>
+  </div>
+
+  <!-- POPUP de Eliminación -->
+  <div id="popup-eliminar" class="popup-overlay">
+    <div class="popup popup-eliminar">
+      <h2>Eliminación de Usuario</h2>
+      <p id="popup-message">¿Deseas eliminar al usuario seleccionado?</p>
+      <div class="popup-buttons">
+        <button class="btn-cancelar" id="btn-cancelar-eliminar">❌ Cancelar</button>
+        <button class="btn-confirmar" id="btn-confirmar-eliminar">🗑️ Eliminar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- POPUP: Ver Préstamos -->
+  <div id="popup-prestamos" class="popup-overlay">
+    <div class="popup">
+      <h2>Préstamos del Usuario</h2>
+      <div id="contenido-prestamos"></div>
+      <div class="popup-buttons">
+        <button class="btn-aceptar" id="btn-cerrar-prestamos">✔ Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Conectar el JS -->
+  <script src="mostrar-usuarios.js"></script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registro de Administrador</title>
+  <link rel="stylesheet" href="/css/cssAdmin/RegistroAdmin.css">
+</head>
+<body>
+
+  <!-- Botón de regresar corregido -->
+  <button class="back-button" onclick="window.location.href='AdminLogin.html'"> Volver</button>
+
+  <div class="form-container">
+    <h2>👤 Crear Cuenta de Administrador</h2>
+    <hr>
+
+    <form id="registroForm" novalidate>
+      <!-- Campo de usuario -->
+      <div class="field">
+        <label for="usuario">Usuario:</label>
+        <input type="text" id="usuario" name="usuario" autocomplete="username" required>
+        <div id="usuarioError" class="error" aria-live="polite"></div>
+      </div>
+
+      <!-- Campo de correo -->
+      <div class="field">
+        <label for="correo">Correo Institucional:</label>
+        <input type="email" id="correo" name="correo" autocomplete="email" required>
+        <div id="correoError" class="error" aria-live="polite"></div>
+      </div>
+
+      <!-- Campo de contraseña -->
+      <div class="field">
+        <label for="contrasena">Contraseña:</label>
+        <div class="password-wrapper">
+          <input
+            type="password"
+            id="contrasena"
+            name="contrasena"
+            maxlength="8"
+            required
+            pattern="^(?=.*[A-Z])(?=.*[^A-Za-z0-9])[A-Za-z\d\W]{8}$"
+            title="Debe tener exactamente 8 caracteres, con al menos una mayúscula y un carácter especial"
+          />
+          <button type="button" id="togglePass" class="toggle-btn">👁️ Ver</button>
+        </div>
+
+        <ul class="requirements" id="passReqs" aria-live="polite">
+          <li data-req="len" class="bad">Tener exactamente 8 caracteres</li>
+          <li data-req="upper" class="bad">Al menos 1 mayúscula (A-Z)</li>
+          <li data-req="special" class="bad">Al menos 1 carácter especial (!@#$...)</li>
+        </ul>
+
+        <div id="contrasenaError" class="error" aria-live="polite"></div>
+      </div>
+
+      <!-- Repetir contraseña -->
+      <div class="field">
+        <label for="contrasena2">Repite la contraseña:</label>
+        <div class="password-wrapper">
+          <input
+            type="password"
+            id="contrasena2"
+            name="contrasena2"
+            maxlength="8"
+            required
+          />
+          <button type="button" id="togglePass2" class="toggle-btn">👁️ Ver</button>
+        </div>
+        <div id="contrasena2Error" class="error" aria-live="polite"></div>
+      </div>
+
+      <!-- Rol oculto -->
+      <input type="hidden" id="rol" name="rol" value="bibliotecario">
+
+      <!-- Rol mostrado -->
+      <div class="field">
+        <label for="rolDisplay">Rol:</label>
+        <input type="text" id="rolDisplay" name="rolDisplay" value="Bibliotecario" readonly>
+      </div>
+
+      <!-- Mensaje de formulario -->
+      <div id="formMessage" class="form-message" aria-live="polite"></div>
+
+      <!-- Botón de registro -->
+      <button type="submit" id="submitBtn">Registrar</button>
+    </form>
+  </div>
+
+  <script src="/jsAdmin/RegistroAdmin.js"></script>
+</body>
+</html>

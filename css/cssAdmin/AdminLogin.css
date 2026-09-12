@@ -1,0 +1,151 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: url("https://static.nationalgeographicla.com/files/styles/image_3200/public/006-library-biblioteca-angelica-a-roma_0002.jpg?w=1600") no-repeat center center fixed;
+  background-size: cover;
+}
+
+.exit-btn {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: #ffeb3b;
+  border: 1px solid #000;
+  font-weight: bold;
+  padding: 8px 14px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.login-box {
+  background: rgba(128, 0, 0, 0.95);
+  color: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 320px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.login-header {
+  margin-bottom: 20px;
+}
+
+.user-icon {
+  width: 60px;
+}
+
+h2 {
+  margin: 10px 0;
+  font-size: 1.6rem;
+  border-bottom: 1px solid #fff;
+  padding-bottom: 8px;
+}
+
+form label {
+  display: block;
+  text-align: left;
+  margin: 10px 0 5px;
+}
+
+form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 6px;
+}
+
+.password-wrapper {
+  position: relative;
+  margin-bottom: 20px; /* 🔹 Aumenta el espacio entre el campo y el botón */
+}
+
+
+.toggle-btn {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #333;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 10px;
+  background: #cfcfcf;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  background: #222;
+  color: white;
+}
+
+.create-account button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.create-account button:hover {
+  background: #222;
+  color: white;
+}
+
+#forgot-password-btn {
+  background: none;
+  border: none;
+  color: #cfcfcf;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-top: 15px; /* 🔹 Baja un poco el enlace */
+  margin-bottom: 10px;
+  display: block;
+}
+
+
+#forgot-password-btn:hover {
+  color: #ffeb3b;
+}
+
+.error-message, .success-message {
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  margin-top: 10px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.error-message {
+  background: rgba(255, 0, 0, 0.15);
+  border: 1px solid #ff4d4d;
+  color: #ff4d4d;
+}
+
+.success-message {
+  background: #d4edda;
+  border: 1px solid #2e7d32;
+  color: #2e7d32;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}

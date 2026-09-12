@@ -1,0 +1,13 @@
+# Dependencias
+node_modules/
+
+# Variables de entorno (contiene secretos: NO subir)
+.env
+
+# Logs
+npm-debug.log*
+*.log
+
+# Sistema
+.DS_Store
+Thumbs.db
