@@ -87,7 +87,7 @@ form.addEventListener('submit', async function(e) {
   cambiarContrasenaBtn.innerHTML = '<span class="icon">⏳</span> Actualizando...';
 
   try {
-    const response = await fetch('http://localhost:3000/api/actualizar-contrasena', {
+    const response = await fetch('/api/actualizar-contrasena', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ correo: email, nuevaContrasena })

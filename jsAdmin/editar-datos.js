@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // 🔹 Cargar datos del usuario al iniciar
   try {
-    const response = await fetch(`http://localhost:3000/api/usuarios/${idUsuario}`);
+    const response = await fetch(`/api/usuarios/${idUsuario}`);
     const data = await response.json();
 
     if (!data.success) {
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       // Si la contraseña está vacía, no la mandamos al servidor
       const body = contrasena ? { nombre, correo, contrasena, rol } : { nombre, correo, rol };
 
-      const res = await fetch(`http://localhost:3000/api/usuarios/${idUsuario}`, {
+      const res = await fetch(`/api/usuarios/${idUsuario}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),

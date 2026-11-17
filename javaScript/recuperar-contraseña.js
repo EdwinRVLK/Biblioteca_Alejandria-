@@ -54,7 +54,7 @@ if (otpInputs.length) {
 
 // Enviar código por email
 async function enviarCodigoPorEmail(email, codigo) {
-    const response = await fetch('http://localhost:3000/api/enviar-codigo', {
+    const response = await fetch('/api/enviar-codigo', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ correo: email, codigo: codigo })
@@ -75,7 +75,7 @@ formRecuperar.addEventListener('submit', async function (e) {
     sendEmailBtn.disabled = true;
 
     try {
-        const response = await fetch('http://localhost:3000/api/verificar-correo', {
+        const response = await fetch('/api/verificar-correo', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ correo: email })

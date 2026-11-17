@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ==========================
   async function cargarCategorias() {
     try {
-      const res = await fetch("http://localhost:3000/api/categorias");
+      const res = await fetch("/api/categorias");
       const categorias = await res.json();
 
       // Carrusel de categorías
@@ -185,7 +185,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const formData = new FormData(form);
 
     try {
-      const res = await fetch("http://localhost:3000/api/categorias", {
+      const res = await fetch("/api/categorias", {
         method: "POST",
         body: formData
       });
@@ -244,7 +244,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!confirm("¿Eliminar categoría?")) return;
 
       try {
-        const res = await fetch(`http://localhost:3000/api/categorias/${id}`, {
+        const res = await fetch(`/api/categorias/${id}`, {
           method: "DELETE"
         });
         if (!res.ok) throw new Error("Error al eliminar categoría");
@@ -279,7 +279,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const formData = new FormData(formEditar);
 
     try {
-      const res = await fetch(`http://localhost:3000/api/categorias/${id}`, {
+      const res = await fetch(`/api/categorias/${id}`, {
         method: "PUT",
         body: formData
       });
@@ -298,7 +298,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ==========================
   async function cargarLibros() {
     try {
-      const res = await fetch("http://localhost:3000/api/libros");
+      const res = await fetch("/api/libros");
       librosData = await res.json();
       renderLibros(librosData);
     } catch (err) {

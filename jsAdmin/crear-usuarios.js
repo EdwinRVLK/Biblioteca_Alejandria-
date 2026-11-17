@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const usuarioData = { nombre, correo, contrasena, rol };
 
     try {
-      const response = await fetch("http://localhost:3000/api/usuarios", {
+      const response = await fetch("/api/usuarios", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(usuarioData),

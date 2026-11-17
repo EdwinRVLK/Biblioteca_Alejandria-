@@ -4,7 +4,7 @@
 
 async function cargarUsuarios() {
   try {
-    const response = await fetch("http://localhost:3000/api/usuarios");
+    const response = await fetch("/api/usuarios");
     const data = await response.json();
 
     if (!data.success) {
@@ -94,7 +94,7 @@ function mostrarPopupEliminar(id, nombre) {
 // =====================================================
 async function eliminarUsuario(userId) {
   try {
-    const res = await fetch(`http://localhost:3000/api/usuarios/${userId}`, { method: "DELETE" });
+    const res = await fetch(`/api/usuarios/${userId}`, { method: "DELETE" });
 
     // ⚠️ Si el servidor responde con error (400, 409, 500...)
     if (!res.ok) {
@@ -135,7 +135,7 @@ async function verPrestamosUsuario(id) {
   const btnCerrar = document.getElementById("btn-cerrar-prestamos");
 
   try {
-    const resp = await fetch(`http://localhost:3000/api/usuarios/${id}/detalle`);
+    const resp = await fetch(`/api/usuarios/${id}/detalle`);
     const data = await resp.json();
     if (!data.success) {
       contenido.innerHTML = `<p>Error al obtener los préstamos del usuario.</p>`;

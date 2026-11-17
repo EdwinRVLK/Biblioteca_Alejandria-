@@ -56,6 +56,12 @@ app.use('/jsUser', express.static(path.join(__dirname, 'jsUser')));
 app.use('/Images', express.static(path.join(__dirname, 'Images')));
 
 // =======================
+// 📄 URL documentada en el protocolo de evaluación
+app.get(['/Biblioteca', '/Biblioteca.html'], (req, res) => {
+  res.sendFile(path.join(__dirname, 'html', 'Biblioteca.html'));
+});
+
+// =======================
 // 🩺 Health check
 // =======================
 app.get('/api/status', (req, res) => {

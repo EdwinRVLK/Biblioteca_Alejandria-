@@ -35,7 +35,7 @@ async function cargarUsuarios() {
     try {
         mostrarLoading(true);
         
-        const response = await fetch('http://localhost:3000/api/usuarios');
+        const response = await fetch('/api/usuarios');
         const data = await response.json();
         
         if (data.success) {
@@ -148,8 +148,8 @@ async function enviarFormulario(e) {
 
     try {
         const url = usuarioEditando 
-            ? `http://localhost:3000/api/usuarios/${usuarioEditando.id_usuario}`
-            : 'http://localhost:3000/api/usuarios';
+            ? `/api/usuarios/${usuarioEditando.id_usuario}`
+            : '/api/usuarios';
 
         const method = usuarioEditando ? 'PUT' : 'POST';
 
@@ -202,7 +202,7 @@ async function confirmarEliminacion() {
     if (!usuarioAEliminar) return;
 
     try {
-        const response = await fetch(`http://localhost:3000/api/usuarios/${usuarioAEliminar}`, {
+        const response = await fetch(`/api/usuarios/${usuarioAEliminar}`, {
             method: 'DELETE',
             headers: {
                 'Accept': 'application/json'
@@ -252,7 +252,7 @@ async function eliminarUsuariosSeleccionados() {
     try {
         // Eliminar uno por uno (podría optimizarse con un endpoint batch)
         for (const id of ids) {
-            const response = await fetch(`http://localhost:3000/api/usuarios/${id}`, {
+            const response = await fetch(`/api/usuarios/${id}`, {
                 method: 'DELETE'
             });
             const result = await response.json();

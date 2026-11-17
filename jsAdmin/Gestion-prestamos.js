@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-  const API_URL = "http://localhost:3000/api";
+  const API_URL = "/api";
   const tbody = document.getElementById('tbodyPrestamos');
   const buscarInput = document.getElementById('buscar');
   const btnBuscar = document.getElementById('btnBuscar');

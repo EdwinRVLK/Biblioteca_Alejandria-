@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const ejemplares = document.getElementById("ejemplares");
 
   // --- Cargar categorías ---
-  fetch("http://localhost:3000/api/categorias")
+  fetch("/api/categorias")
     .then(res => res.json())
     .then(data => {
       data.forEach(cat => {
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
     formData.set("ejemplares", cantidad || "1");
 
     try {
-      const res = await fetch("http://localhost:3000/api/libros", {
+      const res = await fetch("/api/libros", {
         method: "POST",
         body: formData
       });

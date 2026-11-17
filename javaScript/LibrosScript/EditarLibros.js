@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   async function cargarCategorias() {
     try {
-      const res = await fetch("http://localhost:3000/api/categorias");
+      const res = await fetch("/api/categorias");
       const categorias = await res.json();
       selectCategoria.innerHTML = `<option value="">-- Selecciona una categoría --</option>`;
       categorias.forEach(c => {
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   async function cargarLibros() {
     try {
-      const res = await fetch("http://localhost:3000/api/libros");
+      const res = await fetch("/api/libros");
       libros = await res.json();
       renderLibros(libros);
     } catch (err) {
@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   async function abrirEditar(id) {
     try {
-      const res = await fetch(`http://localhost:3000/api/libros/${id}`);
+      const res = await fetch(`/api/libros/${id}`);
       const libro = await res.json();
 
       document.getElementById("id_libro").value = libro.id_libro;
@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
       const formData = new FormData(form);
-      const res = await fetch(`http://localhost:3000/api/libros/${libroSeleccionado}`, {
+      const res = await fetch(`/api/libros/${libroSeleccionado}`, {
         method: "PUT",
         body: formData
       });
@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // 🗑️ Eliminar libro con popup
   document.getElementById("btn-confirmar-eliminar").addEventListener("click", async () => {
     try {
-      const res = await fetch(`http://localhost:3000/api/libros/${libroSeleccionado}`, { method: "DELETE" });
+      const res = await fetch(`/api/libros/${libroSeleccionado}`, { method: "DELETE" });
       const data = await res.json();
 
       if (!res.ok) {

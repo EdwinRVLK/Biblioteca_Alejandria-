@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     return;
   }
 
-  const baseURL = "http://localhost:3000";
+  const baseURL = "";
 
   // =============================
   // CARGAR DATOS COMPLETOS

@@ -1,6 +1,6 @@
 // Archivo: /jsAdmin/Informes.js
 document.addEventListener("DOMContentLoaded", async () => {
-  const API_BASE = "http://localhost:3000";
+  const API_BASE = "";
 
   const $ = (selector) => document.querySelector(selector);
 
