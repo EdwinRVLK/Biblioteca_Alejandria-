@@ -2,6 +2,8 @@
 
 Esta carpeta contiene **todo lo necesario para levantar y apagar exactamente el mismo entorno** usado en la prueba piloto de usabilidad.
 
+> **¿Empiezas desde cero?** Sigue el [tutorial de instalación](TUTORIAL_Instalacion.md) (también en PDF en `formatos/Tutorial_Instalacion_Piloto.pdf`). Termina con los dos iconos en el escritorio.
+
 ## Contenido
 
 | Archivo | Para qué sirve |
@@ -10,6 +12,9 @@ Esta carpeta contiene **todo lo necesario para levantar y apagar exactamente el 
 | `Iniciar_Piloto.ps1` | Script real de arranque (MySQL → BD → datos → Node 3001 → navegador). |
 | `Detener_Piloto.bat` | **Doble clic**: apaga el servidor del piloto. |
 | `Detener_Piloto.ps1` | Script real de apagado. |
+| `Crear_Accesos_Directos.bat` | **Doble clic**: crea los iconos de inicio y apagado en el escritorio. |
+| `Crear_Accesos_Directos.ps1` | Script real que crea esos accesos directos. |
+| `TUTORIAL_Instalacion.md` | Tutorial desde la instalación hasta los iconos en el escritorio. |
 | `sembrar_piloto.js` | Carga los usuarios/libros/préstamos ficticios en la BD. |
 | `generar_formatos_node.js` | Regenera los imprimibles (PDF y DOCX). |
 | `formatos/` | Los 5 formatos imprimibles ya generados. |
