@@ -51,8 +51,9 @@ if (-not (Test-Path $envFile)) {
         'DB_PASSWORD=123456',
         'DB_NAME=biblioteca'
     ) | Set-Content -Encoding UTF8 $envFile
-    Write-Host '! No existia .env: se creo uno con DB_USER=root / DB_PASSWORD=123456.' -ForegroundColor Yellow
-    Write-Host '  Si tu MySQL usa otros datos, edita ese archivo antes de continuar.' -ForegroundColor Yellow
+    Write-Host '! No existia .env: se creo uno con valores de EJEMPLO.' -ForegroundColor Yellow
+    Write-Host '  IMPORTANTE: DB_PASSWORD=123456 es solo un ejemplo, NO es universal.' -ForegroundColor Yellow
+    Write-Host '  Cambialo en .env por la contrasena de MySQL configurada en ESTA maquina.' -ForegroundColor Yellow
 }
 
 $dbHost = Get-EnvValue $envFile 'DB_HOST' 'localhost'

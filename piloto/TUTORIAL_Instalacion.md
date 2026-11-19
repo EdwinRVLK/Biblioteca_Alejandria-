@@ -10,8 +10,9 @@ Tiempo estimado: 10–15 min.
 
 1. **Git** — https://git-scm.com/download/win
 2. **Node.js 18 o superior** (incluye `npm`) — https://nodejs.org/
-3. **MySQL** en `localhost:3306`, usuario `root`, contraseña `123456`.
-   Si tu MySQL tiene otros datos, no pasa nada: después se ajustan en `.env`.
+3. **MySQL** en `localhost:3306`. Durante la instalación de MySQL tú elegiste una
+   contraseña para `root`: **usa esa contraseña**, no hay una contraseña universal.
+   (`123456` es solo el valor de ejemplo del equipo donde se preparó el piloto.)
 
 Para comprobarlo, abre PowerShell y escribe:
 
@@ -51,19 +52,37 @@ Tarda 1–3 minutos. Verás una carpeta `node_modules` al terminar.
 
 ---
 
-## 3. Configurar la base de datos (solo si es distinta)
+## 3. Configurar la base de datos (paso obligatorio)
 
-No hace falta crear `.env` a mano: el script de inicio lo crea automáticamente con estos valores:
+No hace falta crear `.env` a mano: el script de inicio lo crea automáticamente en la
+raíz del proyecto con estos **valores de ejemplo**:
 
 ```
 DB_HOST=localhost
 DB_USER=root
-DB_PASSWORD=123456
+DB_PASSWORD=123456   <-- SOLO EJEMPLO: cambialo
 DB_NAME=biblioteca
 PORT=3001
 ```
 
-Si tu MySQL usa otra contraseña o usuario, edita el archivo `.env` que se crea en la raíz del proyecto y cambia esas líneas.
+> **Importante:** `DB_PASSWORD=123456` es la contraseña del equipo donde se preparó
+> el piloto. **NO es universal.** Cada persona debe poner en `DB_PASSWORD` la
+> contraseña que configuró en **su propio** MySQL durante la instalación.
+
+Para hacerlo, abre el `.env` de la raíz del proyecto con:
+
+```powershell
+notepad .env
+```
+
+Cambia solo esta línea por tu contraseña real y guarda:
+
+```
+DB_PASSWORD=LA_CONTRASENA_QUE_CONFIGURASTE
+```
+
+Ejemplo: si al instalar MySQL elegiste `MiClave2026`, la línea queda `DB_PASSWORD=MiClave2026`.
+Si además tu usuario no es `root`, cambia también `DB_USER`.
 
 > `.env` está ignorado por Git: nunca se sube al repositorio porque contiene datos sensibles.
 
@@ -159,7 +178,7 @@ powershell -ExecutionPolicy Bypass -File .\Iniciar_Piloto.ps1 -Puerto 3002
 
 El script muestra ahora el mensaje real de MySQL. Casos comunes:
 
-- `Access denied for user 'root'@'localhost'` → la contraseña no es `123456`. Edita `DB_PASSWORD` en el `.env` de la raíz del proyecto con tu contraseña real.
+- `Access denied for user 'root'@'localhost'` → la contraseña del `.env` no coincide con la que configuraste en tu MySQL. Abre `notepad .env` en la raíz del proyecto y pon tu contraseña real en `DB_PASSWORD` (la `123456` que aparece es solo el ejemplo del equipo original).
 - `Can't connect to MySQL server` → MySQL no está corriendo o no escucha en el puerto 3306.
 - `Unknown database 'biblioteca'` → ya no debería aparecer: el dump crea la base de datos automáticamente.
 
@@ -177,6 +196,7 @@ Recarga la página con **Ctrl + F5**. El campo ya admite hasta 128 caracteres.
 git clone https://github.com/EdwinRVLK/Biblioteca_Alejandria-.git
 cd Biblioteca_Alejandria
 npm install
+notepad .env      # cambia DB_PASSWORD por la contraseña que configuraste en TU MySQL
 cd piloto
 powershell -ExecutionPolicy Bypass -File .\Crear_Accesos_Directos.ps1
 ```
