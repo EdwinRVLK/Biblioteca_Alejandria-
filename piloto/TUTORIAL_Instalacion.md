@@ -157,7 +157,13 @@ powershell -ExecutionPolicy Bypass -File .\Iniciar_Piloto.ps1 -Puerto 3002
 
 ### Error al restaurar la base de datos
 
-Revisa `DB_USER` y `DB_PASSWORD` en el `.env` de la raíz del proyecto y vuelve a intentar.
+El script muestra ahora el mensaje real de MySQL. Casos comunes:
+
+- `Access denied for user 'root'@'localhost'` → la contraseña no es `123456`. Edita `DB_PASSWORD` en el `.env` de la raíz del proyecto con tu contraseña real.
+- `Can't connect to MySQL server` → MySQL no está corriendo o no escucha en el puerto 3306.
+- `Unknown database 'biblioteca'` → ya no debería aparecer: el dump crea la base de datos automáticamente.
+
+Después de corregir, vuelve a hacer doble clic en **Iniciar Piloto - Biblioteca**.
 
 ### La contraseña no se escribe completa
 

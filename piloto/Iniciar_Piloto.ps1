@@ -89,12 +89,17 @@ if (-not $SinReiniciarBD) {
     $dump = Join-Path $Proyecto 'MySQL\biblioteca_actualizada.sql'
     if (-not (Test-Path $dump)) { throw "No encuentro el dump: $dump" }
     Write-Host '-> Restaurando base de datos de prueba...' -ForegroundColor Yellow
-    $cmd = "`"$mysqlExe`" --default-character-set=utf8mb4 -h $dbHost -u $dbUser -p$dbPass $dbName < `"$dump`""
+    # No se pasa $dbName: el propio dump ejecuta CREATE DATABASE / USE.
+    # Asi funciona tambien en una instalacion nueva donde "biblioteca" aun no existe.
+    $cmd = "`"$mysqlExe`" --default-character-set=utf8mb4 -h $dbHost -u $dbUser -p$dbPass < `"$dump`""
     $eapAnterior = $ErrorActionPreference
     $ErrorActionPreference = 'Continue'
-    & cmd.exe /c $cmd 2>&1 | Out-Null
+    $salidaMysql = & cmd.exe /c $cmd 2>&1 | Out-String
     $ErrorActionPreference = $eapAnterior
-    if ($LASTEXITCODE -ne 0) { throw 'Error al restaurar la base de datos. Revisa DB_USER/DB_PASSWORD en .env.' }
+    if ($LASTEXITCODE -ne 0) {
+        Write-Host $salidaMysql -ForegroundColor Red
+        throw 'No se pudo restaurar la base de datos. Revisa DB_USER/DB_PASSWORD en .env y el mensaje de mysql mostrado arriba.'
+    }
     Write-Host '[OK] Base de datos restaurada' -ForegroundColor Green
 } else {
     Write-Host '-> Se omite la restauracion de la BD (-SinReiniciarBD)' -ForegroundColor DarkYellow
