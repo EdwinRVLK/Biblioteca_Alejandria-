@@ -44,11 +44,11 @@ foreach ($plan in $planes) {
         $lnk.IconLocation     = $icono
         $lnk.Description      = 'Biblioteca Alejandria - ' + $plan.Bat
         $lnk.Save()
-        Write-Host "  ✓ $nombre" -ForegroundColor Green
+        Write-Host "  [OK] $nombre" -ForegroundColor Green
     }
 }
 
 Write-Host ''
 Write-Host 'LISTO. Ya tienes los accesos directos en tu escritorio.' -ForegroundColor Cyan
-Write-Host '  Iniciar Piloto - Biblioteca  →  doble clic para levantar todo.' -ForegroundColor White
-Write-Host '  Detener Piloto - Biblioteca  →  doble clic para apagar.' -ForegroundColor White
+Write-Host '  Iniciar Piloto - Biblioteca  ->  doble clic para levantar todo.' -ForegroundColor White
+Write-Host '  Detener Piloto - Biblioteca  ->  doble clic para apagar.' -ForegroundColor White

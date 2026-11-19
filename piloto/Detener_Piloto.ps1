@@ -13,7 +13,7 @@ if (Test-Path $pidFile) {
     if ($proc -and $proc.ProcessName -eq 'node') {
         Stop-Process -Id $id -Force
         Remove-Item $pidFile -Force
-        Write-Host "✓ Servidor detenido (PID $id)" -ForegroundColor Green
+        Write-Host "[OK] Servidor detenido (PID $id)" -ForegroundColor Green
     } else {
         Write-Host 'El PID guardado ya no corresponde a un proceso node activo.' -ForegroundColor Yellow
         Remove-Item $pidFile -Force -ErrorAction SilentlyContinue
@@ -22,5 +22,5 @@ if (Test-Path $pidFile) {
     Write-Host 'No hay archivo servidor.pid; buscando node con server.js de este proyecto...' -ForegroundColor Yellow
     Get-CimInstance Win32_Process -Filter "Name = 'node.exe'" | Where-Object {
         $_.CommandLine -match 'server\.js'
-    } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force; Write-Host "✓ Detenido PID $($_.ProcessId)" -ForegroundColor Green }
+    } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force; Write-Host "[OK] Detenido PID $($_.ProcessId)" -ForegroundColor Green }
 }
