@@ -32,12 +32,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let puntos = 0;
 
-    if (valor.length === 8) {
-      lenCheck.textContent = "✔ 8 caracteres";
+    if (valor.length >= 8) {
+      lenCheck.textContent = "✔ Mínimo 8 caracteres";
       lenCheck.style.color = "green";
       puntos++;
     } else {
-      lenCheck.textContent = "✖ 8 caracteres";
+      lenCheck.textContent = "✖ Mínimo 8 caracteres";
       lenCheck.style.color = "red";
     }
 

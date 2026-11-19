@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
   inputPassword.addEventListener("input", () => {
     const val = inputPassword.value;
 
-    toggleRule(reglas.len, val.length === 8);
+    toggleRule(reglas.len, val.length >= 8);
     toggleRule(reglas.mayus, /[A-Z]/.test(val));
     toggleRule(reglas.minus, /[a-z]/.test(val));
     toggleRule(reglas.num, /\d/.test(val));
@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const valido =
-      contrasena.length === 8 &&
+      contrasena.length >= 8 &&
       /[A-Z]/.test(contrasena) &&
       /[a-z]/.test(contrasena) &&
       /\d/.test(contrasena) &&

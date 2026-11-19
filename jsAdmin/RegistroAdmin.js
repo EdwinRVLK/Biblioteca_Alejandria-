@@ -1,4 +1,4 @@
-// Validación de registro de administrador con guía, longitud exacta de 8 caracteres y ver/ocultar contraseña
+// Validación de registro de administrador con guía, longitud mínima de 8 caracteres y ver/ocultar contraseña
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("registroForm");
   const usuario = document.getElementById("usuario");
@@ -19,13 +19,13 @@ document.addEventListener("DOMContentLoaded", () => {
     special: reqList.querySelector('[data-req="special"]'),
   };
 
-  // Regex: exactamente 8 caracteres, 1 mayúscula, 1 especial
-  const passRegex = /^(?=.*[A-Z])(?=.*[^A-Za-z0-9])[A-Za-z\d\W]{8}$/;
+  // Regex: al menos 8 caracteres, 1 mayúscula, 1 especial
+  const passRegex = /^(?=.*[A-Z])(?=.*[^A-Za-z0-9])[A-Za-z\d\W]{8,128}$/;
 
   // Actualiza el estado visual de los requisitos
   function updateRequirements(value) {
     const checks = {
-      len: value.length === 8,
+      len: value.length >= 8,
       upper: /[A-Z]/.test(value),
       special: /[^A-Za-z0-9]/.test(value),
     };
@@ -40,11 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Mostrar guía mientras el usuario escribe
   pass.addEventListener("input", () => {
-    // Limitar la longitud máxima a 8 caracteres
-    if (pass.value.length > 8) {
-      pass.value = pass.value.slice(0, 8);
-    }
-
     const cumple = updateRequirements(pass.value);
     pass.classList.toggle("is-valid", cumple);
     pass.classList.toggle("is-invalid", !cumple);

@@ -23,10 +23,10 @@
         <input
           type="password"
           id="nuevaContrasena"
-          placeholder="Debe tener 8 caracteres"
+          placeholder="Mínimo 8 caracteres"
           required
           minlength="8"
-          maxlength="8"
+          maxlength="128"
         />
         
         <div class="password-strength">
@@ -36,7 +36,7 @@
         <div class="password-requirements">
           <div id="lengthReq" class="requirement">
             <span class="icon"></span>
-            Exactamente 8 caracteres
+            Mínimo 8 caracteres
           </div>
           <div id="upperReq" class="requirement">
             <span class="icon"></span>
@@ -60,10 +60,10 @@
         <input
           type="password"
           id="confirmarContrasena"
-          placeholder="Repite tu contraseña (8 caracteres)"
+          placeholder="Repite tu contraseña (mínimo 8 caracteres)"
           required
           minlength="8"
-          maxlength="8"
+          maxlength="128"
         />
         
         <button type="submit" id="cambiarContrasenaBtn">

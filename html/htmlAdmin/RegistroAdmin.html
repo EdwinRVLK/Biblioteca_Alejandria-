@@ -38,16 +38,16 @@
             type="password"
             id="contrasena"
             name="contrasena"
-            maxlength="8"
+            maxlength="128"
             required
-            pattern="^(?=.*[A-Z])(?=.*[^A-Za-z0-9])[A-Za-z\d\W]{8}$"
-            title="Debe tener exactamente 8 caracteres, con al menos una mayúscula y un carácter especial"
+            pattern="^(?=.*[A-Z])(?=.*[^A-Za-z0-9])[A-Za-z\d\W]{8,128}$"
+            title="Debe tener al menos 8 caracteres, con al menos una mayúscula y un carácter especial"
           />
           <button type="button" id="togglePass" class="toggle-btn">👁️ Ver</button>
         </div>
 
         <ul class="requirements" id="passReqs" aria-live="polite">
-          <li data-req="len" class="bad">Tener exactamente 8 caracteres</li>
+          <li data-req="len" class="bad">Tener al menos 8 caracteres</li>
           <li data-req="upper" class="bad">Al menos 1 mayúscula (A-Z)</li>
           <li data-req="special" class="bad">Al menos 1 carácter especial (!@#$...)</li>
         </ul>
@@ -63,7 +63,7 @@
             type="password"
             id="contrasena2"
             name="contrasena2"
-            maxlength="8"
+            maxlength="128"
             required
           />
           <button type="button" id="togglePass2" class="toggle-btn">👁️ Ver</button>

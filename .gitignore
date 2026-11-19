@@ -11,3 +11,6 @@ npm-debug.log*
 # Sistema
 .DS_Store
 Thumbs.db
+
+# Estado en ejecucion del piloto (se genera al iniciar)
+piloto/servidor.pid

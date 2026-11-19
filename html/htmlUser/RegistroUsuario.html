@@ -19,12 +19,12 @@
 
       <label>Contraseña:</label>
       <div class="password-container">
-        <input type="password" id="contrasena" maxlength="8" required placeholder="********" />
+        <input type="password" id="contrasena" maxlength="128" required placeholder="Mínimo 8 caracteres" autocomplete="new-password" />
         <span id="togglePassword" class="toggle-icon" title="Mostrar/ocultar contraseña">👁️</span>
       </div>
 
       <div id="passwordChecklist">
-        <div class="check-item" id="len-check">✖ 8 caracteres</div>
+        <div class="check-item" id="len-check">✖ Mínimo 8 caracteres</div>
         <div class="check-item" id="upper-check">✖ Mayúscula</div>
         <div class="check-item" id="special-check">✖ Carácter especial</div>
       </div>
